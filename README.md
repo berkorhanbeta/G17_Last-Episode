@@ -1,5 +1,5 @@
 ISE308 Group Project
-# G17_Last-Episode
+# G19_Last-Episode
 
 This is an android Application written in Kotlin language. It's a simple Fragment application.
 Developed for ISE308
