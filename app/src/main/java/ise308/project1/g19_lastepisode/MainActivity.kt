@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
 
     fun jsonOpener(){
         // Creating/Opening G17 JSON File
-        mSerializer = JSONSerializer("G17.json", applicationContext)
+        mSerializer = JSONSerializer("G19.json", applicationContext)
 
         try {
             seriesList = mSerializer!!.load() // Loading Notes
