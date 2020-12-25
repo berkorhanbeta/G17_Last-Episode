@@ -104,6 +104,27 @@ class MainActivity : AppCompatActivity() {
         saveSeries()
     }
 
+    // Opening edit TV Series
+    fun editSeries(seriesPosition: Int) {
+
+        val seriesID = Bundle() // Creating Bundle
+        seriesID.putInt("positionID", seriesPosition) // Putting position value inside of bundle
+        val fragment = SeriesFragment()
+        fragment.arguments = seriesID // sending positionid value to fragment
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_holder, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+
+    // Edit values inside of JSON File
+    fun editedSeries(addSeries: TvSeries,seriesPosition: Int){
+        seriesList!!.set(seriesPosition, addSeries)
+        saveSeries()
+    }
+
+
 
     // Saving TV series to JSON file
     private fun saveSeries() {
@@ -129,11 +150,11 @@ class MainActivity : AppCompatActivity() {
 
 
     fun jsonOpener(){
-        // Creating/Opening G17 JSON File
+        // Creating/Opening G19 JSON File
         mSerializer = JSONSerializer("G19.json", applicationContext)
 
         try {
-            seriesList = mSerializer!!.load() // Loading Notes
+            seriesList = mSerializer!!.load() // Loading Tv Series Details
         } catch (e: Exception) {
             seriesList = ArrayList()
             Log.e("Error loading notes: ", "", e)

@@ -46,9 +46,9 @@ class TvSeriesAdapter(
 
     override fun onBindViewHolder(holder: ListItemHolder, position: Int) {
 
-            // Position valaue works like note ID.
-            // We do not add any id value on JSON file, so when we want to find a note.
-            // We use position value instead of note ID.
+            // Position value works like note ID.
+            // We do not add any id value on JSON file, so when we want to find a tv series.
+            // We use position value instead of series ID.
             val series = seriesList[position]
 
             holder.title.text = series.sName // Set Title
@@ -82,7 +82,7 @@ class TvSeriesAdapter(
 
         override fun onClick(view: View) {
             // When user click a item,
-            // We are sending item position to Show Note function in MainActivity
+            // We are sending item position to Show Series function in MainActivity
             mainActivity.showTVSeries(adapterPosition)
         }
 
