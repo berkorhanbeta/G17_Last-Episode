@@ -1,4 +1,4 @@
-package ise308.project1.g17_lastepisode
+package ise308.project1.g19_lastepisode
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

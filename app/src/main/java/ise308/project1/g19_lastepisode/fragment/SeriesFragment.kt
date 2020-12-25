@@ -1,4 +1,4 @@
-package ise308.project1.g17_lastepisode.fragment
+package ise308.project1.g19_lastepisode.fragment
 
 
 
@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
-import ise308.project1.g17_lastepisode.MainActivity
-import ise308.project1.g17_lastepisode.R
-import ise308.project1.g17_lastepisode.util.TvSeries
+import ise308.project1.g19_lastepisode.MainActivity
+import ise308.project1.g19_lastepisode.R
+import ise308.project1.g19_lastepisode.util.TvSeries
 
 
 class SeriesFragment : Fragment(), AdapterView.OnItemSelectedListener {

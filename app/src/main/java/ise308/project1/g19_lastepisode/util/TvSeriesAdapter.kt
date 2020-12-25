@@ -16,7 +16,7 @@
 
 
 
-package ise308.project1.g17_lastepisode.util
+package ise308.project1.g19_lastepisode.util
 
 import android.view.LayoutInflater
 import android.view.View
@@ -24,8 +24,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import ise308.project1.g17_lastepisode.MainActivity
-import ise308.project1.g17_lastepisode.R
+import ise308.project1.g19_lastepisode.MainActivity
+import ise308.project1.g19_lastepisode.R
 
 class TvSeriesAdapter(
     private val mainActivity: MainActivity, private val seriesList: List<TvSeries>): RecyclerView.Adapter<TvSeriesAdapter.ListItemHolder>() {

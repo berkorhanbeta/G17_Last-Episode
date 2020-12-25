@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ise308.project1.g17_lastepisode">
+    package="ise308.project1.g19_lastepisode">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.G17_LastEpisode">
         <activity
-            android:name=".MainActivity"
+            android:name="ise308.project1.g19_lastepisode.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.G17_LastEpisode.NoActionBar">
             <intent-filter>

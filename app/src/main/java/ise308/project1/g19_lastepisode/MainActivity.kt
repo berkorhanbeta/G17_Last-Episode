@@ -1,4 +1,4 @@
-package ise308.project1.g17_lastepisode
+package ise308.project1.g19_lastepisode
 
 import android.os.Bundle
 import android.util.Log
@@ -6,11 +6,11 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import ise308.project1.g17_lastepisode.fragment.ListSeriesFragment
-import ise308.project1.g17_lastepisode.fragment.SeriesFragment
-import ise308.project1.g17_lastepisode.fragment.ShowSeriesFragment
-import ise308.project1.g17_lastepisode.util.JSONSerializer
-import ise308.project1.g17_lastepisode.util.TvSeries
+import ise308.project1.g19_lastepisode.fragment.ListSeriesFragment
+import ise308.project1.g19_lastepisode.fragment.SeriesFragment
+import ise308.project1.g19_lastepisode.fragment.ShowSeriesFragment
+import ise308.project1.g19_lastepisode.util.JSONSerializer
+import ise308.project1.g19_lastepisode.util.TvSeries
 
 class MainActivity : AppCompatActivity() {
 
