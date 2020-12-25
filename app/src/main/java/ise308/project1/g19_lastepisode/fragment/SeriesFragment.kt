@@ -76,7 +76,7 @@ class SeriesFragment : Fragment(), AdapterView.OnItemSelectedListener {
             // Checking argument for null or not.
             // if main activity send any data to fragment then argument is not null
         if(arguments != null){
-
+                btnAdd.setText(getString(R.string.editSeries))
                 jsonOpener()
                 selectedSeries(seriesList!![positionID!!])
                 seriesTitle.setText(series!!.sName)
