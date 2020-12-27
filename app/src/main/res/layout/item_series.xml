@@ -12,45 +12,44 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="@dimen/layoutmargin">
 
 
             <LinearLayout
-                android:layout_width="334dp"
+                android:layout_width="@dimen/width"
                 android:layout_height="wrap_content"
-
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TV Series Name" />
+                    android:text="@string/Name_textview" />
 
                 <TextView
                     android:id="@+id/tvSName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp" />
+                    android:layout_margin="@dimen/seriesmargin" />
 
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TV Series Genre" />
+                    android:text="@string/Genre_textview" />
 
                 <TextView
                     android:id="@+id/tvSGENRE"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp" />
+                    android:layout_margin="@dimen/seriesmargin" />
 
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/isFinishedImage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/imagesize"
+                android:layout_height="@dimen/imagesize"
 
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:foregroundGravity="center"

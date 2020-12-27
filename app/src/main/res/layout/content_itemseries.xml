@@ -9,8 +9,9 @@
         android:id="@+id/item_series"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="20dp" />
+        tools:layout_editor_absoluteX="@dimen/layoutabsolute"
+        tools:listitem="@layout/item_series"
+        android:layout_margin="@dimen/layoutmargin"
+        tools:layout_editor_absoluteY="@dimen/layoutabsolute" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

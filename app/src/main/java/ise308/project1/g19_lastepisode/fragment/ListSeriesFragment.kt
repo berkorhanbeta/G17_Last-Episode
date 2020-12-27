@@ -1,6 +1,7 @@
 package ise308.project1.g19_lastepisode.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,9 +26,18 @@ class ListSeriesFragment: Fragment() {
         //content ıtem serıes ı gostermek ıcın
         val itemseries = view.findViewById<TextView>(R.id.item_series)
 
-        val dm = DataManager (activity!!)
-        //ıtem_serıestekı kısmı getırmek ıcın
-        item_series.series_layout = dm.searchAll()
+        fun jsonOpener(){
+            // Creating/Opening G19 JSON File
+            val activity = activity as MainActivity
+            mSerializer = JSONSerializer("G19.json", activity)
+
+            try {
+                seriesList = mSerializer!!.load() // Loading Series Details
+            } catch (e: Exception) {
+                seriesList = ArrayList()
+                Log.e("Error loading notes: ", "", e)
+            }
+        }
 
         return view
     }
