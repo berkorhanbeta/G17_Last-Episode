@@ -44,8 +44,10 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+
                 <Button
-                    android:id="@+id/deleteSeries"
+
+                    android:id="@+id/button_delete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/detailsButtonMargin"
@@ -53,7 +55,7 @@
                     android:text="@string/delete" />
 
                 <Button
-                    android:id="@+id/editSeries"
+                    android:id="@+id/button_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

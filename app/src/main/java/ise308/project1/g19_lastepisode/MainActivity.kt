@@ -11,9 +11,11 @@ import ise308.project1.g19_lastepisode.fragment.SeriesFragment
 import ise308.project1.g19_lastepisode.fragment.ShowSeriesFragment
 import ise308.project1.g19_lastepisode.util.JSONSerializer
 import ise308.project1.g19_lastepisode.util.TvSeries
+import kotlinx.android.synthetic.main.activity_main
+
+
 
 class MainActivity : AppCompatActivity() {
-
 
     private var mSerializer: JSONSerializer? = null
     private var seriesList: ArrayList<TvSeries>? = null
@@ -22,7 +24,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
-
+        bounce.setOnClickListener {
+            val animationBounce = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            textView.startAnimation(animationBounce)
+        }
         // In this code,
         // We are creating main fragment
         val fragment = ListSeriesFragment()
