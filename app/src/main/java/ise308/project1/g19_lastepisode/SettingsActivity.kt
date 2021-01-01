@@ -74,4 +74,13 @@ class SettingsActivity : AppCompatActivity() {
             Log.e("Error loading notes: ", "", e)
         }
     }
+
+
+
+    override fun onBackPressed() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+            return
+    }
 }

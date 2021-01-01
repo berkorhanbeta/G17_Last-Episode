@@ -2,9 +2,11 @@ package ise308.project1.g19_lastepisode
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.commit
@@ -154,12 +156,20 @@ class MainActivity : AppCompatActivity() {
 
 
     // When user press android back button
+    private var doubleBackToExitPressedOnce = false
     override fun onBackPressed() {
         val fm = supportFragmentManager
         if (fm.backStackEntryCount > 0) { //if backstack contain any fragment than pop it
             fm.popBackStack()
         } else {                         // Close Application
-            super.onBackPressed()
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed()
+                return
+            }
+            this.doubleBackToExitPressedOnce = true
+            Toast.makeText(this, getString(R.string.exit), Toast.LENGTH_SHORT).show()
+
+            Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
         }
     }
 
@@ -175,5 +185,6 @@ class MainActivity : AppCompatActivity() {
             Log.e("Error loading notes: ", "", e)
         }
     }
+
 
 }
