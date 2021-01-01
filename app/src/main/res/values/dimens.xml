@@ -45,4 +45,10 @@
     <dimen name="list_finishedImageHeightSize">120dp</dimen>
     <dimen name="list_itemMargins">2dp</dimen>
     <dimen name="list_itemPaddings">10dp</dimen>
+
+
+    <!-- Settings XML -->
+    <dimen name="settingsErase">20sp</dimen>
+    <dimen name="erasePadding">10dp</dimen>
+    <dimen name="eraseMargin">10dp</dimen>
 </resources>

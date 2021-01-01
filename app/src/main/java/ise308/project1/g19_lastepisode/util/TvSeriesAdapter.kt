@@ -40,7 +40,6 @@ class TvSeriesAdapter(
     }
 
     override fun getItemCount(): Int {
-
         return seriesList.size
     }
 
@@ -61,7 +60,6 @@ class TvSeriesAdapter(
             } else {
                 holder.isFinishedImage.setImageResource(R.drawable.notfinished) // Set Not Finished Image
             }
-
 
     }
 
