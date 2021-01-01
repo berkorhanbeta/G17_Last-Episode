@@ -24,7 +24,8 @@
     <string name="editSeries">Change Detaıls</string>
     <string name="delete">Delete</string>
     <string name="addNew">Add New TV Series</string>
-
+    <string name="Name_textview">Tv Series Name</string>
+    <string name="Genre_textview">TV Series Genre</string>
     <string name="tvName">Friends</string>
     <string name="sNumber">1</string>
     <string name="eNumber">5</string>
