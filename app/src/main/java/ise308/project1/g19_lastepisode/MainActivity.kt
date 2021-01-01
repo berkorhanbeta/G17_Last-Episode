@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.commit
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ise308.project1.g19_lastepisode.fragment.ListSeriesFragment
 import ise308.project1.g19_lastepisode.fragment.SeriesFragment
@@ -38,7 +40,10 @@ class MainActivity : AppCompatActivity() {
 
             // Creating fragment
             val fragment = SeriesFragment()
-            val transaction = supportFragmentManager.beginTransaction()
+            val transaction = supportFragmentManager
+                    .beginTransaction()
+                    .setCustomAnimations(R.anim.slide_in, R.anim.out)
+            //.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             transaction.replace(R.id.fragment_holder, fragment)
 
 
@@ -83,7 +88,9 @@ class MainActivity : AppCompatActivity() {
         seriesID.putInt("positionID", positionID) // Putting position value inside of bundle
         val fragment = ShowSeriesFragment()
         fragment.arguments = seriesID // sending positionid value to fragment
-        val transaction = supportFragmentManager.beginTransaction()
+        val transaction = supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(R.anim.slide_in, R.anim.out)
         transaction.replace(R.id.fragment_holder, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
@@ -111,7 +118,9 @@ class MainActivity : AppCompatActivity() {
         seriesID.putInt("positionID", seriesPosition) // Putting position value inside of bundle
         val fragment = SeriesFragment()
         fragment.arguments = seriesID // sending positionid value to fragment
-        val transaction = supportFragmentManager.beginTransaction()
+        val transaction = supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(R.anim.slide_in, R.anim.out)
         transaction.replace(R.id.fragment_holder, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
