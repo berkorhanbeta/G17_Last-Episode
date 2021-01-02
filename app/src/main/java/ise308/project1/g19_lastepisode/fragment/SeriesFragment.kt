@@ -93,7 +93,7 @@ class SeriesFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 activity.onBackPressed()
             } else {
                 addSeries()
-                activity.onBackPressed()
+                activity.onBackPressed() // Go Back
             }
         }
         return view
