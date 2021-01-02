@@ -1,10 +1,15 @@
 package ise308.project1.g19_lastepisode
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.commit
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ise308.project1.g19_lastepisode.fragment.ListSeriesFragment
 import ise308.project1.g19_lastepisode.fragment.SeriesFragment
@@ -43,7 +48,10 @@ class MainActivity : AppCompatActivity() {
 
             // Creating fragment
             val fragment = SeriesFragment()
-            val transaction = supportFragmentManager.beginTransaction()
+            val transaction = supportFragmentManager
+                    .beginTransaction()
+                    .setCustomAnimations(R.anim.slide_in, R.anim.out)
+            //.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             transaction.replace(R.id.fragment_holder, fragment)
 
 
@@ -73,7 +81,12 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_settings -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+                finish()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -88,7 +101,9 @@ class MainActivity : AppCompatActivity() {
         seriesID.putInt("positionID", positionID) // Putting position value inside of bundle
         val fragment = ShowSeriesFragment()
         fragment.arguments = seriesID // sending positionid value to fragment
-        val transaction = supportFragmentManager.beginTransaction()
+        val transaction = supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(R.anim.slide_in, R.anim.out)
         transaction.replace(R.id.fragment_holder, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
@@ -116,7 +131,9 @@ class MainActivity : AppCompatActivity() {
         seriesID.putInt("positionID", seriesPosition) // Putting position value inside of bundle
         val fragment = SeriesFragment()
         fragment.arguments = seriesID // sending positionid value to fragment
-        val transaction = supportFragmentManager.beginTransaction()
+        val transaction = supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(R.anim.slide_in, R.anim.out)
         transaction.replace(R.id.fragment_holder, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
@@ -144,12 +161,20 @@ class MainActivity : AppCompatActivity() {
 
 
     // When user press android back button
+    private var doubleBackToExitPressedOnce = false
     override fun onBackPressed() {
         val fm = supportFragmentManager
         if (fm.backStackEntryCount > 0) { //if backstack contain any fragment than pop it
             fm.popBackStack()
         } else {                         // Close Application
-            super.onBackPressed()
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed()
+                return
+            }
+            this.doubleBackToExitPressedOnce = true
+            Toast.makeText(this, getString(R.string.exit), Toast.LENGTH_SHORT).show()
+
+            Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
         }
     }
 
@@ -165,5 +190,6 @@ class MainActivity : AppCompatActivity() {
             Log.e("Error loading notes: ", "", e)
         }
     }
+
 
 }

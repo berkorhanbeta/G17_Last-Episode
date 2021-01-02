@@ -30,6 +30,14 @@
 
     <dimen name="add_CheckBoxMargin">10dp</dimen>
 
+    <!-- ıtem serıes -->
+    <dimen name="layoutmargin">10dp</dimen>
+    <dimen name="layoutabsolute">20dp</dimen>
+    <dimen name="seriesmargin">5dp</dimen>
+    <dimen name="width">334dp</dimen>
+    <dimen name="imagesize">40dp</dimen>
+
+
 
     <!-- LIST TV SERIES XML -->
     <dimen name="list_titleTextSize">10sp</dimen>
@@ -37,4 +45,10 @@
     <dimen name="list_finishedImageHeightSize">120dp</dimen>
     <dimen name="list_itemMargins">2dp</dimen>
     <dimen name="list_itemPaddings">10dp</dimen>
+
+
+    <!-- Settings XML -->
+    <dimen name="settingsErase">20sp</dimen>
+    <dimen name="erasePadding">10dp</dimen>
+    <dimen name="eraseMargin">10dp</dimen>
 </resources>
