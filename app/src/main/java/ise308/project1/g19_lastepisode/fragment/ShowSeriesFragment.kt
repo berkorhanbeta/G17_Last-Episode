@@ -5,11 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import ise308.project1.g19_lastepisode.MainActivity
 import ise308.project1.g19_lastepisode.R
+import ise308.project1.g19_lastepisode.util.JSONSerializer
 import ise308.project1.g19_lastepisode.util.TvSeries
 
 class ShowSeriesFragment : Fragment() {
@@ -31,26 +33,35 @@ class ShowSeriesFragment : Fragment() {
 
          // we match fragment and layout
         val view: View = inflater.inflate(R.layout.content_detail, container, false)
-
+        jsonOpener()
         // taking positionID value from main activity
         val positionID = arguments?.getInt("positionID")
 
+
+        selectedSeries(seriesList!![positionID!!])
+
+
         txtTitle = view.findViewById(R.id.tvSeriesName)
         txtLastEpisode = view.findViewById(R.id.tvSeriesLastEpisode)
-        btnEdit = view.findViewById(R.id.editSeries)
-        btnDelete = view.findViewById(R.id.deleteSeries)
+        btnEdit = view.findViewById(R.id.button_edit)
+        btnDelete = view.findViewById(R.id.button_delete)
 
         btnEdit.setOnClickListener {
+            val animation = AnimationUtils.loadAnimation(activity, R.anim.slide_in)
+            btnEdit.startAnimation(animation)
             (activity as MainActivity).editSeries(positionID!!)
         }
 
 
         btnDelete.setOnClickListener {
-
+            val animation = AnimationUtils.loadAnimation(activity, R.anim.slide_in)
+            btnDelete.startAnimation(animation)
             (activity as MainActivity).deleteSeries(positionID!!)
             (activity as MainActivity).onBackPressed()
 
         }
+
+        setDetails()
 
         return view
     }
@@ -65,7 +76,7 @@ class ShowSeriesFragment : Fragment() {
         season = series!!.sLastSeason
         episode = series!!.sLastEpisode
         txtTitle.text = series!!.sName
-        txtLastEpisode.text = "The last episode you watched in this series is Season $season, $episode"
+        txtLastEpisode.text = getString(R.string.theLastEpisode)+" $season, " +getString(R.string.episode)+" $episode"
 
     }
 

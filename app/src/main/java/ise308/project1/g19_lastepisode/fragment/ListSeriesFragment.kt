@@ -9,11 +9,14 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Spinner
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ise308.project1.g19_lastepisode.MainActivity
+import ise308.project1.g19_lastepisode.R
 import ise308.project1.g19_lastepisode.util.JSONSerializer
+import ise308.project1.g19_lastepisode.util.TvSeries
 import ise308.project1.g19_lastepisode.util.TvSeriesAdapter
 
 //import ise308.project1.g19_lastepisode.util.TvSeries
@@ -32,13 +35,12 @@ class ListSeriesFragment: Fragment() {
 
     ):View? {
 
-        val view = inflater.inflate(R.Layout.content_itemseries, container, false)
+        val view = inflater.inflate(R.layout.content_itemseries, container, false)
         //content ıtem serıes ı gostermek ıcın
             val activity = activity as MainActivity
 
-        fun jsonOpener(){
+
             // Creating/Opening G19 JSON File
-            val activity = activity as MainActivity
             mSerializer = JSONSerializer("G19.json", activity)
 
             try {
@@ -47,7 +49,7 @@ class ListSeriesFragment: Fragment() {
                 seriesList = ArrayList()
                 Log.e("Error loading notes: ", "", e)
             }
-            recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
+            recyclerView = view.findViewById(R.id.item_series) as RecyclerView
             // List the unfinished TV Series first.
             adapter = TvSeriesAdapter(activity, this.seriesList!!.sortedByDescending { !it.isFinished })
 

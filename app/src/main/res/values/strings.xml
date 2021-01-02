@@ -5,6 +5,10 @@
     <string name="erase_content">Erase All Content</string>
     <string name="eraseButton">Erase</string>
 
+    <string name="exit">Please click back button again to exit</string>
+
+    <string name="theLastEpisode">The last episode you watched in this series is Season</string>
+
 
     <string name="seriesName">TV Series Name</string>
     <string name="seriesGenre">What Is The Genre Of This Show?</string>
@@ -15,7 +19,7 @@
     <string name="isFinished">I watched all the episodes</string>
     <string name="add">Add</string>
     <string name="lastepisodetext">The last episode you watched in this series is season 1, episode 5</string>
-    <string name="editSeries">Change Detaıls</string>
+    <string name="editSeries">Edıt</string>
     <string name="delete">Delete</string>
     <string name="addNew">Add New TV Series</string>
     <string name="Name_textview">Tv Series Name</string>

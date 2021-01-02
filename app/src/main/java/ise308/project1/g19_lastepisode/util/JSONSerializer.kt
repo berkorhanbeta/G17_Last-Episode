@@ -21,51 +21,51 @@ class JSONSerializer (
     private val context: Context) {
 
     @Throws(IOException::class, JSONException::class)
-    fun save(series: List<TVSeries>){
+    fun save(series: List<TvSeries>) {
         val jArray = JSONArray()
 
-    for (n in series)
-        jArray.put(n.convertToJSON())
+        for (n in series)
+            jArray.put(n.convertToJSON())
 
-    var writer: Writer?= null
+        var writer: Writer? = null
         try {
             val out = context.openFileOutput(filename, Context.MODE_PRIVATE)
 
-            writer=OutputStreamWriter(out)
+            writer = OutputStreamWriter(out)
             writer.write(jArray.toString())
 
-        }finally {
-            if (writer != null){
+        } finally {
+            if (writer != null) {
                 writer.close()
             }
         }
     }
+
     @Throws(IOException::class, JSONException::class)
-    fun load(): ArrayList<TvSeries>{
+    fun load(): ArrayList<TvSeries> {
         val TvSeries = ArrayList<TvSeries>()
         var reader: BufferedReader? = null
         try {
             val `in` = context.openFileInput(filename)
             reader = BufferedReader(InputStreamReader(`in`))
             val jsonString = StringBuilder()
-            for (line in reader.readLine()){
+            for (line in reader.readLine()) {
                 jsonString.append(line)
 
-        }
-             val jArray = JSONTokener(jsonString.toString()).
-             nextValue() as JSONArray
+            }
+            val jArray = JSONTokener(jsonString.toString()).nextValue() as JSONArray
 
-             for (i in 0 until jArray.length()){
-                TvSeries.add(Series(jArray.getJSONObject(i)))
-             }
-    }catch (e: FileNotFoundException){
+            for (i in 0 until jArray.length()) {
+                TvSeries.add(TvSeries(jArray.getJSONObject(i)))
+            }
+        } catch (e: FileNotFoundException) {
 
-        }finally {
+        } finally {
             reader!!.close()
         }
         return TvSeries
     }
 
-)
+}
 
 
