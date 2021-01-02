@@ -9,13 +9,23 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Spinner
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import ise308.project1.g19_lastepisode.MainActivity
 import ise308.project1.g19_lastepisode.util.JSONSerializer
+import ise308.project1.g19_lastepisode.util.TvSeriesAdapter
+
 //import ise308.project1.g19_lastepisode.util.TvSeries
 
 class ListSeriesFragment: Fragment() {
 
-    override fun onCreateView(
+    private var mSerializer: JSONSerializer? = null
+    private var seriesList: ArrayList<TvSeries>? = null
+    private var recyclerView: RecyclerView? = null
+    private var adapter: TvSeriesAdapter? = null
+
+        override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,7 +34,7 @@ class ListSeriesFragment: Fragment() {
 
         val view = inflater.inflate(R.Layout.content_itemseries, container, false)
         //content ıtem serıes ı gostermek ıcın
-        val itemseries = view.findViewById<TextView>(R.id.item_series)
+            val activity = activity as MainActivity
 
         fun jsonOpener(){
             // Creating/Opening G19 JSON File
@@ -37,10 +47,29 @@ class ListSeriesFragment: Fragment() {
                 seriesList = ArrayList()
                 Log.e("Error loading notes: ", "", e)
             }
+            recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
+            // List the unfinished TV Series first.
+            adapter = TvSeriesAdapter(activity, this.seriesList!!.sortedByDescending { !it.isFinished })
+
+
+            val layoutManager = LinearLayoutManager(activity)
+
+            recyclerView!!.layoutManager = layoutManager
+            recyclerView!!.itemAnimator = DefaultItemAnimator()
+
+            recyclerView!!.adapter = adapter
+            adapter!!.notifyDataSetChanged()
+
+            return view
         }
 
-        return view
-    }
+            override fun onResume() {
+                super.onResume()
+                adapter!!.notifyDataSetChanged()
 
-}
+                if (recyclerView!!.itemDecorationCount > 0)
+                    recyclerView!!.removeItemDecorationAt(0)
 
+
+            }
+        }
