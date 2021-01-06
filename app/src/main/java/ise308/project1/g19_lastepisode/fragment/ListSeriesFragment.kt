@@ -51,7 +51,7 @@ class ListSeriesFragment: Fragment() {
             }
             recyclerView = view.findViewById(R.id.item_series) as RecyclerView
             // List the unfinished TV Series first.
-            adapter = TvSeriesAdapter(activity, this.seriesList!!.sortedByDescending { !it.isFinished })
+            adapter = TvSeriesAdapter(activity, this.seriesList!!)
 
 
             val layoutManager = LinearLayoutManager(activity)
